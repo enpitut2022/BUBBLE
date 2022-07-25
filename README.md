@@ -1,11 +1,13 @@
 # BUBBLE
-Team H：雨のちドラゴンのサービスです。
-Product Name：BUBBLE
-Miro：
-https://miro.com/app/board/uXjVOnEs5bU=/
+Team H.雨のちドラゴン  
+Product Name：BUBBLE  
 
-URL for Service:
-https://bubble-amenochidoragon.herokuapp.com/
+Miro：  
+[Here](https://miro.com/app/board/uXjVOnEs5bU=/)  
+URL for Service:  
+[Here](https://bubble-amenochidoragon.herokuapp.com/)
+
+
 
 # bubble
 
