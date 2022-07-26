@@ -22,8 +22,12 @@
     },
     methods: {
       getData() {
+        const header = {
+          'Content-Type': 'application/json;charset=UTF-8',
+          'Access-Control-Allow-Origin': '*',
+          }
         this.$axios
-          .get("http://localhost:3000/api",{params:{textQuery:this.textQuery}})
+          .get("https://bubble-back.herokuapp.com",{params:{textQuery:this.textQuery}, header: header})
           .then(
             function (res) {
               console.log("ok")
