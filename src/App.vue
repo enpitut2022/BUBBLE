@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo_bubble1.png">
-    <HelloWorld msg="Hello World, enPiT!"/>
+    <WordCloud/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloBubble.vue'
+import WordCloud from './components/WordCloud.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    WordCloud
   }
 }
 </script>
