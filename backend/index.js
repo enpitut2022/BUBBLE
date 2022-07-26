@@ -1,8 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-app.use(bodyParser.json())
+const port = process.env.PORT || 3000
 
+app.use(bodyParser.json())
 
 //CORSポリシーを無効にしている。
 app.use(function(req, res, next) {
@@ -10,7 +11,6 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-
 
 app.get('/api', function(req, res) {
   console.log(req.query.textQuery)
@@ -36,4 +36,6 @@ app.get('/api', function(req, res) {
 
 })
 
-app.listen(3000)
+app.listen(port, () => {
+  console.log(`listening on *:${port}`);
+})
