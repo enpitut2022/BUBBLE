@@ -6,6 +6,7 @@ import unicodedata
 import pandas as pd
 import MeCab
 from wordcloud import WordCloud
+import json
 
 df = pd.read_csv("./sample_data.csv")
 df.text = df.text.str.normalize("NFKC").str.lower()
@@ -62,4 +63,23 @@ wc = WordCloud(
 
 ex_text = wc.to_svg()
 
-print(ex_text)
+tokens = df.tokens
+texts = df.text
+i = 0
+print(i)
+type(i)
+
+dic = {}
+
+for token in tokens:
+    wordend = token.split()
+    for word in wordend:
+       dic.setdefault(word,set())
+       dic[word].add(i)
+    i += 1
+
+for key in dic.keys():
+   dic[key] = list(dic[key])
+       
+result = {"dic":dic,"posts":list(texts),"wordcloud":ex_text}
+print(json.dumps(result))
