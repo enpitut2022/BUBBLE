@@ -4,8 +4,11 @@
     <svg xmlns="http://www.w3.org/2000/svg" width="600" height="400">
     
 <rect width="100%" height="100%" style="fill:white"></rect>
-<text transform="translate(342,61)" font-size="60" style="fill:rgb(127, 127, 127)">思う</text>
-<text transform="translate(52,132)" font-size="44" style="fill:rgb(127, 127, 127)">映画</text>
+<a  @click='Popout("思う")'><text transform="translate(342,61)" font-size="60" style="fill:rgb(127, 127, 127)">思う</text></a>
+
+
+<a  @click='Popout("映画")' ><text transform="translate(52,132)" font-size="44" style="fill:rgb(127, 127, 127)">映画</text></a>
+
 <text transform="translate(303,358)" font-size="41" style="fill:rgb(174, 199, 232)">自分</text>
 <text transform="translate(55,56)" font-size="39" style="fill:rgb(174, 199, 232)">記事</text>
 <text transform="translate(481,66)" font-size="39" style="fill:rgb(196, 156, 148)">日本</text>
@@ -27,7 +30,7 @@
 <text transform="translate(447,394) rotate(-90)" font-size="25" style="fill:rgb(174, 199, 232)">スマート</text>
 <text transform="translate(244,312)" font-size="25" style="fill:rgb(127, 127, 127)">行う</text>
 <text transform="translate(17,248)" font-size="24" style="fill:rgb(152, 223, 138)">android</text>
-<text transform="translate(48,364) rotate(-90)" font-size="23" style="fill:rgb(44, 160, 44)">利用</text>
+<!-- <text transform="translate(48,364) rotate(-90)" font-size="23" style="fill:rgb(44, 160, 44)">利用</text>
 <text transform="translate(460,85)" font-size="23" style="fill:rgb(44, 160, 44)">フォン</text>
 <text transform="translate(403,195)" font-size="23" style="fill:rgb(148, 103, 189)">紹介</text>
 <text transform="translate(51,372)" font-size="23" style="fill:rgb(219, 219, 141)">発表</text>
@@ -203,9 +206,12 @@
 <text transform="translate(392,10)" font-size="11" style="fill:rgb(199, 199, 199)">バッテリー</text>
 <text transform="translate(262,140)" font-size="11" style="fill:rgb(255, 127, 14)">一番</text>
 <text transform="translate(312,152)" font-size="11" style="fill:rgb(196, 156, 148)">転職</text>
-<text transform="translate(105,229) rotate(-90)" font-size="11" style="fill:rgb(255, 152, 150)">得る</text>
+<text transform="translate(105,229) rotate(-90)" font-size="11" style="fill:rgb(255, 152, 150)">得る</text> -->
 </svg>
+<h1>{{flag}}</h1>
+<h1 v-if="flag==1" v-for="data in datas[SelectedWord]">{{data}}</h1>
   </div>
+ 
 </template>
 
 <script>
@@ -213,13 +219,35 @@
     name: 'WordCloud',
     data(){
       return{
-        datas:[{'name': 'サル痘', 'num': 723}, {'name': '感染', 'num': 432},
-        {'name': '東京都', 'num':111}],
+        datas:
+        {映画:[
+          ["@BOURGEOIS_LST",
+          "9TH表紙の決め手は松村北斗主演の映画をロンドンで見れたこと、その主題歌を聴いた時にテーマである「自分らしくいたい」と思えたことがきっかけだった。ロンドンが似合うからいつか遊びきてね。#古着屋巡りしよう#北斗くん#ロンドンで"],
+      
+          ["@miyarin",
+          "くそだったわ"],
+      
+          ["@Ami",
+          "なんやこれ"]],
+        思う:
+        ["@nakano0316",
+        "あと政治家だけじゃなくて、官僚にもかなりいると思う"]
+          },
         textQuery: 'sample',
         sampleHTML: '',
+        flag:0,
+        SelectedWord:''
       }
     },
     methods: {
+      Popout(word){
+        if(this.flag==0){
+          this.flag=1;
+          this.SelectedWord=word;
+        }else if(this.flag==1){
+          this.flag=0;
+        }
+      },
       getData() {
         const headers = {
           'Content-Type': 'application/json;charset=UTF-8',
@@ -245,6 +273,9 @@
 </script>
 
 <style>
+a,a:hover,a:visited{
+    color: inherit;
+}
 text {
   font-family:'Arial Unicode MS';
   font-weight:normal;
