@@ -208,8 +208,28 @@
 <text transform="translate(312,152)" font-size="11" style="fill:rgb(196, 156, 148)">転職</text>
 <text transform="translate(105,229) rotate(-90)" font-size="11" style="fill:rgb(255, 152, 150)">得る</text> -->
 </svg>
-<h1>{{flag}}</h1>
-<h1 v-if="flag==1" v-for="data in datas[SelectedWord]">{{data}}</h1>
+<!-- <h1>{{flag}}</h1> -->
+
+<div class="SelectedWord" v-if="flag==1">
+  <h1>{{SelectedWord}}</h1>
+  <!-- <div v-for="n in 4"> -->
+    <div class="tweet0">
+      <p v-if="flag==1" >{{datas[SelectedWord][0]}}</p>
+    </div>
+    <div class="tweet1">
+      <p v-if="flag==1" >{{datas[SelectedWord][1]}}</p>
+    </div>
+    <div class="tweet2">
+      <p v-if="flag==1" >{{datas[SelectedWord][2]}}</p>
+    </div>
+    <div class="tweet3">
+      <p v-if="flag==1" >{{datas[SelectedWord][3]}}</p>
+    <!-- </div> -->
+  </div>
+</div>
+
+
+
   </div>
  
 </template>
@@ -228,10 +248,14 @@
           "くそだったわ"],
       
           ["@Ami",
-          "なんやこれ"]],
+          "なんやこれ"],
+          ["@iseyuu",
+           "くそおもしろかった"],
+          ["@chino",
+           "泣いた"]],
         思う:
-        ["@nakano0316",
-        "あと政治家だけじゃなくて、官僚にもかなりいると思う"]
+        [["@nakano0316",
+        "あと政治家だけじゃなくて、官僚にもかなりいると思う"]]
           },
         textQuery: 'sample',
         sampleHTML: '',
@@ -275,6 +299,38 @@
 <style>
 a,a:hover,a:visited{
     color: inherit;
+}
+.SelectedWord{
+  font-size:60px;
+  position:relative;
+}
+.tweet0{
+  position:absolute;
+  width: 300px;
+  font-size:medium;
+  top: 10%;
+  right: 60%;
+}
+.tweet1{
+  position:absolute;
+  width: 300px;
+  font-size:medium;
+  top: -30%;
+  left: 30%;
+}
+.tweet2{
+  position:absolute;
+  width: 300px;
+  font-size:medium;
+  top: 10%;
+  left: 60%;
+}
+.tweet3{
+  position:absolute;
+  width: 300px;
+  font-size:medium;
+  bottom: -50%;
+  right: 50%;
 }
 text {
   font-family:'Arial Unicode MS';
