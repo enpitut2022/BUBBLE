@@ -1,8 +1,9 @@
 <template>
   <div>
     {{/* eslint-disable */}}
+    <input type = "button" @click = "getData" value="送信"> 
     <svg xmlns="http://www.w3.org/2000/svg" width="600" height="400">
-    
+
 <rect width="100%" height="100%" style="fill:white"></rect>
 <a  @click='Popout("思う")'><text transform="translate(342,61)" font-size="60" style="fill:rgb(127, 127, 127)">思う</text></a>
 
@@ -254,12 +255,11 @@
           'Access-Control-Allow-Origin': '*',
           }
         this.$axios
-          .get("https://bubble-back.herokuapp.com",{params:{textQuery:this.textQuery}, headers: headers})
+          .get("http://127.0.0.1:5000/api/wcd",{params:{textQuery:this.textQuery}, headers: headers})
           .then(
             function (res) {
               console.log("ok")
-              console.log(res.data.wordCloud)
-              this.sampleHTML = res.data.wordCloud
+              console.log(res)
             }.bind(this)
           ) // Promise処理を行う場合は.bind(this)が必要
           .catch(function (error) {

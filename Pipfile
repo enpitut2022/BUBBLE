@@ -13,6 +13,7 @@ ipadic = "*"
 pandas = "*"
 wordcloud = "*"
 mecab-python3 = "*"
+flask-cors = "*"
 
 [dev-packages]
 autopep8 = "*"
