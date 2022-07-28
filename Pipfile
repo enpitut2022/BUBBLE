@@ -14,6 +14,7 @@ pandas = "*"
 wordcloud = "*"
 mecab-python3 = "*"
 flask-cors = "*"
+gunicorn = "*"
 
 [dev-packages]
 autopep8 = "*"
@@ -24,4 +25,4 @@ rope = "*"
 python_version = "3.9"
 
 [scripts]
-start = "python main.py"
+start = "python backend/main.py"
