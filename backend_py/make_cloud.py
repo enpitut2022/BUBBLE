@@ -7,7 +7,7 @@ import pandas as pd
 import MeCab
 from wordcloud import WordCloud
 
-df = pd.read_csv("./sample_data.csv")
+df = pd.read_csv("./backend_py/to_csv_out.csv")
 df.text = df.text.str.normalize("NFKC").str.lower()
 df.text = df.text.str.replace("\n", " ")
 df.text = df.text.str.replace("\u2028", "")
@@ -61,5 +61,6 @@ wc = WordCloud(
 
 
 ex_text = wc.to_svg()
+ex_img = wc.to_image()
 
 print(ex_text)
