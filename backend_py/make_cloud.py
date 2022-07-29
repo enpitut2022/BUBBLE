@@ -61,6 +61,5 @@ wc = WordCloud(
 
 
 ex_text = wc.to_svg()
-ex_img = wc.to_image()
 
 print(ex_text)
