@@ -3,7 +3,7 @@ from models import get_all, init_db, insert
 from makecloud import api_bp
 from flask_cors import CORS
 
-app = Flask(__name__, static_folder='../dist/img', template_folder='../dist')
+app = Flask(__name__, static_folder='../dist/static', template_folder='../dist')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///myspa.db'
 app.register_blueprint(api_bp)
 
