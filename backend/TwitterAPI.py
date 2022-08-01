@@ -22,7 +22,7 @@ def ClientInfo():
     return client
 
 # ★必要情報入力
-search    = "ザコシ"  # 検索対象
+search    = ""  # 検索対象
 tweet_max = 100           # 取得したいツイート数(10〜100で設定可能)
 
 # 関数
@@ -61,4 +61,4 @@ for tweet in tweets:
     tweet_text.append(s)
 # pprint(tweet_text)
 df = pd.DataFrame(data=tweet_text, columns=['text'])
-df.to_csv('./backend_py/to_csv_out.csv', encoding='utf-8')
+df.to_csv('./backend/to_csv_out.csv', encoding='utf-8')

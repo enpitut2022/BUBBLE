@@ -7,7 +7,7 @@ import pandas as pd
 import MeCab
 from wordcloud import WordCloud
 
-df = pd.read_csv("./backend_py/to_csv_out.csv")
+df = pd.read_csv("./backend/to_csv_out.csv")
 df.text = df.text.str.normalize("NFKC").str.lower()
 df.text = df.text.str.replace("\n", " ")
 df.text = df.text.str.replace("\u2028", "")
@@ -46,17 +46,21 @@ df["tokens"] = df.text.apply(mecab_tokenizer)
 text_data = " ".join(df["tokens"])
 
 wc = WordCloud(
+        font_path='./NotoSansJP-Regular.otf',
         width=600,
         height=400,
-        prefer_horizontal=0.9,
+        prefer_horizontal=1.0,
+        max_words=60,
+        stopwords={'https','co','rt'},
         background_color='white',
-        include_numbers=False,
-        colormap='tab20',
-        regexp=r"\w{2,}",
-        relative_scaling=1,
-        collocations=False,
         max_font_size=60,
-        random_state=42,
+        min_font_size=10,
+        relative_scaling=0.5,
+        regexp=r"\w{2,}",
+        collocations=False,
+        colormap='summer',
+        include_numbers=False,
+        random_state=42
     ).generate(text_data)
 
 
