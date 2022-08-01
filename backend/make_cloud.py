@@ -52,18 +52,18 @@ wc = WordCloud(
         prefer_horizontal=1.0,
         max_words=60,
         stopwords={'https','co','rt'},
-        background_color='white',
+        background_color='black',
         max_font_size=60,
         min_font_size=10,
         relative_scaling=0.5,
         regexp=r"\w{2,}",
         collocations=False,
-        colormap='summer',
+        colormap='Paired',
         include_numbers=False,
         random_state=42
     ).generate(text_data)
 
 
 ex_text = wc.to_svg()
-
 print(ex_text)
+wc.to_file("./backend/wc_image_ja.png")

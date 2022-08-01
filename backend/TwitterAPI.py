@@ -22,7 +22,7 @@ def ClientInfo():
     return client
 
 # ★必要情報入力
-search    = ""  # 検索対象
+search    = "死体"  # 検索対象
 tweet_max = 100           # 取得したいツイート数(10〜100で設定可能)
 
 # 関数
